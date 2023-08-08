@@ -1,0 +1,16 @@
+# Add Authors here
+velee:
+   name: Ve Lee
+   username: velee
+   site: http://ve-lee.github.io
+   avatar: velee.png
+   bio: "Hi I am Ve Lee, a Web Developer and Designer."
+   email: mem.acia@gmail.com
+   social:
+      - title: "github"
+        url: "https://github.com/ve-lee"
+#       - title: "linkedin"
+#         url: "https://www.linkedin.com/in/johndoe"
+#       - title: "twitter"
+#         url: "https://www.twitter.com/johndoe"
+#       - title: "behance"

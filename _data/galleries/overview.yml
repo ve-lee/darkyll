@@ -1,0 +1,19 @@
+-
+  title: Lolz
+  directory: lolz
+  preview:
+    filename: 1.png
+    original: 1-thumbnail.jpg
+    sizes:
+    - 1-thumbnail.jpg
+    thumbnail: 1-thumbnail.jpg
+
+-
+  title: React
+  directory: react
+  preview:
+    filename: 1.png
+    original: 1-thumbnail.jpg
+    sizes:
+    - 1-thumbnail.jpg
+    thumbnail: 1-thumbnail.jpg

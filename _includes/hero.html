@@ -1,0 +1,43 @@
+<style>
+  /* change hero_cover_img in config.yml */
+  .home-hero {
+    background-color: var(--main-background-color) !important;
+    background-image: url('/assets/img/{{site.hero_cover_img}}');
+    text-align: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 0 -14rem;
+    padding: 10rem 1rem;
+  }
+
+  .home-hero-btns {
+    display: block;
+    margin-top: 50px;
+  }
+
+  .home-hero-heading {
+    font-size: 35px;
+  }
+
+  .home-hero-heading,
+  .lead {
+    color: #fff;
+  }
+</style>
+
+<!-- home hero section -->
+<div class="home-hero">
+  <img src="{{site.url}}{{site.baseurl}}/assets/img/{{site.author_logo}}" />
+  <p class="home-hero-heading">Hi, I am {{site.author}} !</p>
+
+  <p class="lead" id="typewriteText"></p>
+  <!-- uncomment/modify buttons as you want-->
+  <div class="home-hero-btns">
+    <a href="{{site.url}}{{site.baseurl}}/get-started">
+      <button class="button is-success"> <strong>Get Started</strong> </button>
+    </a>
+    <a id="olvy-target">
+      <button class="button is-primary"> <strong>What's New</strong> </button>
+    </a>
+  </div>
+</div>

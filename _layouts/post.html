@@ -1,0 +1,101 @@
+---
+layout: page
+---
+<article class="card" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="card-header">
+        <div class="card-header-title" itemprop="name headline">
+            <h1 class="title">
+                {{ page.title }}
+            </h1>
+        </div>
+        <div class="is-justify-content-end my-auto pr-4">
+            Posted
+            {% if page.author %}
+            {% assign author = page.author %}
+            {% if author %}
+            {% assign author_data = site.data.authors[author] %}
+            by :
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <span itemprop="name">
+                    <a href="{{site.url}}{{site.baseurl}}/blog/authors/{{page.author}}"> {{ author_data.name }}
+                    </a>
+                </span>
+            </span>
+            {% endif %}
+            {% endif %}
+            on
+            <time datetime="{{ page.date }}" itemprop="datePublished">
+                <small><i>{{ page.date | date: "%-d %b %Y %H:%M"}}</i></small>
+            </time>
+            <div class="post-categories">
+                {% if post %} {% assign categories = post.categories %} {% else %} {%
+                assign categories = page.categories %} {% endif %} Category : {% for
+                category in categories %}
+                <a class="is-capitalized" href="{{site.baseurl}}/blog/categories/{{category|slugize}}">{{category}}</a>
+                {% unless forloop.last %}&nbsp;{% endunless %} {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="card-image">
+        <figure class="image is-3by1">
+            <img style="object-fit: cover;" src="{{site.url}}{{site.baseurl}}{{ page.thumbnail }}"
+                alt="{{ post.title }}">
+        </figure>
+    </div>
+
+    <div class="card-content" itemprop="articleBody">
+        {{ content }}
+       
+    </div>
+</article>
+
+<section class="section">
+
+    <div class="columns">
+        <div class="column is-4">
+            <div class="card" style="height: 100%;">
+                <div class="card-header">
+                    <div class="card-header-title">
+                        About {{site.author}}
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="author_bio">{{ site.author_bio }}</p>
+                    <br>
+                    {% include github_follow_button.html %}
+                    <hr>
+                    {% assign author = site.data.authors[page.author] %}
+                    {% if author %}
+                    {% include author.html %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="column is-4">
+            <div class="card" style="height: 100%;">
+                <div class="card-header">
+                    <div class="card-header-title">Categories</div>
+                </div>
+                <div class="card-content content">
+                    {%- include blog_categories.html -%}
+                </div>
+            </div>
+        </div>
+        <div class="column is-4">
+            <div class="card" style="height: 100%;">
+                <div class="card-header">
+                    <div class="card-header-title">Useful Links</div>
+                </div>
+                <div class="card-content content">
+                    <ul>
+                        {% for i in site.urls %}
+                        <li>
+                            <a href="{{ site.url}}{{site.baseurl}}{{ i.url }}">{{ i.text }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

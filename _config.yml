@@ -1,0 +1,90 @@
+title: Ve Lee
+subtitle: Web Engineer
+description: >- # this means to ignore newlines until "baseurl:"
+  Ve Lee is a developper, passionate about new technologies.
+
+url: "https://ve-lee.github.io" # the base hostname & protocol for your site, e.g. https://example.github.io
+baseurl: "" # the subpath of your site, e.g. /blog
+
+# Navigation
+urls:
+    - text: Home
+      url: /
+    - text: About
+      url: /about
+    - text: Blog
+      url: /blog
+    - text: Gallery
+      url: /gallery
+    # - text: Shop
+    #   url : /shop
+    - text: Contact
+      url : /contact
+
+
+# Edit Author details (For multi authors check _data/authors.yml)
+
+author_logo: Zoltan2x2.png
+author: Ve Lee
+author_bio: Hi, my name is Ve Lee. I am passionate about new technologies and development :D
+author_email: "mem.acia@gmail.com"
+author_location: France
+author_website_url: "https://ve-lee.github.io"
+typewrite-text: I am a Solution Engineer, passionate about development.
+hero_cover_img: cover.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
+
+# social links
+github_username:  ve-lee
+
+# wakatime username (coding activity)
+wakatime_username: Ve_lee
+
+# Choose what to show ( can be true or false)
+show_author_work_experiences: true
+show_author_education_details: true
+show_author_project_details: false
+
+# Experiences
+
+# Education
+
+# Projects
+
+# pagination of posts
+paginate: 4
+per_page: 4
+paginate_path: "/blog/page/:num/"
+
+collections:
+  products:
+    output: true
+  authors:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: "gallery"
+    values:
+      permalink: /:path/:basename:output_ext
+  -
+    scope:
+      path: ""
+      type: authors
+    values:
+      layout: author
+      permalink: /blog/authors/:slug
+  -
+    scope:
+      path: 'assets/**'
+    values:
+      sitemap: false
+
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+
+destination: ./build

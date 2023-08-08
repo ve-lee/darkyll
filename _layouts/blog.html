@@ -1,0 +1,107 @@
+---
+layout: page
+---
+{% include blog_categories.html %}
+<div class="columns is-multiline">
+    {% for post in paginator.posts %}
+    <div class="column is-4">
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title">
+                    {{ post.title }}
+                </p>
+                <small class="card-header-title is-justify-content-end">
+                    <i>
+                        {{ post.date | date: "%-d %b %Y"}}
+                    </i>
+                </small>
+            </header>
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="{{site.url}}{{site.baseurl}}{{ post.thumbnail }}" alt="{{ post.thumbnail_alt }}">
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-left">
+                        <figure class="image is-48x48">
+                            {% if post.author %}
+                            {% assign author = post.author %}
+                            {% if author %}
+                            {% assign author_data = site.data.authors[author] %}
+                            <img src="{{site.url}}{{site.baseurl}}/assets/img/authors/{{author_data.avatar}}" />
+                            {% endif %}
+                            {% endif %}
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        {% if post.author %}
+                        {% assign author = post.author %}
+                        {% if author %}
+                        {% assign author_data = site.data.authors[author] %}
+                        <p class="title is-4">{{author_data.name}}</p>
+                        <p class="subtitle is-6"><a
+                                href="{{site.url}}{{site.baseurl}}/blog/authors/{{author_data.username}}">@{{author_data.username}}</a>
+                        </p>
+                        {% endif %}
+                        {% endif %}
+
+                    </div>
+                </div>
+                <div class="content">
+                    {{ post.summary }}
+                </div>
+            </div>
+            <footer class="card-footer">
+                <a href="{{ post.url | prepend: site.baseurl }}" class="card-footer-item">
+                    <span class="icon">
+                        <i class="fab fa-readme"></i>
+                    </span>
+                    <span>
+                        Read More
+                    </span>
+                </a>
+            </footer>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="row center">
+        <!-- Pagination links -->
+        {% if paginator.total_pages > 1 %}
+        <ul class="pagination pagination-sm">
+            {% if paginator.previous_page %}
+            <li class="pagination-link"><a
+                    href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo;</a>
+            </li>
+            {% else %}
+            <li class="pagination-link disabled"><span aria-hidden="true">&laquo;</span></li>
+            {% endif %}
+
+            <li class="pagination-link"><a href="/blog">First</a></li>
+
+            {% for page in (1..paginator.total_pages) %}
+            {% if page == paginator.page %}
+            <li class="disabled pagination-link"><span><b>{{ page }}</b></span></li>
+            {% elsif page == 1 %}
+            <li class="pagination-link"><a href="/blog">{{ page }}</a></li>
+            {% else %}
+            <li class="pagination-link"><a
+                    href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{
+                    page }}</a></li>
+            {% endif %}
+            {% endfor %}
+
+            <li class="pagination-link"><a href="/blog/page/{{ paginator.total_pages }}/#/">Last</a></li>
+
+            {% if paginator.next_page %}
+            <li class="pagination-link"><a
+                    href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">&raquo;</a>
+            </li>
+            {% else %}
+            <li class="disabled pagination-link"><span>&raquo;</span></li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </div>
+</div>

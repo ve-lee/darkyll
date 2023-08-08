@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<script>
+  $(document).ready(function () {
+    $("#typewriteText").typewrite({
+      actions: [{ type: "{{site.typewrite-text}}" }]
+    });
+  });
+</script>
+{%- include hero.html -%}
+<section class="container">
+  {%- include recent_articles.html -%}
+</section>

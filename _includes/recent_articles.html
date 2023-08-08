@@ -1,0 +1,58 @@
+<section class="section content">
+  <nav class="level">
+    <div class="level-left">
+      <h1>Recent Articles</h1>
+    </div>
+    <div class="level-right">
+      <a class="button" href="/blog">View All</a>
+    </div>
+  </nav>
+  <br />
+
+  <div>
+    {% for post in site.posts limit:5 %}
+    <div class="box">
+
+      <article class="media">
+        <figure class="media-left my-auto">
+          <p class="image is-48x48">
+            {% if post.author %}
+            {% assign author = post.author %}
+            {% if author %}
+            {% assign author_data = site.data.authors[author] %}
+            <img src="{{site.url}}{{site.baseurl}}/assets/img/authors/{{author_data.avatar}}" />
+            {% endif %}
+            {% endif %}
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <a href="{{post.url}}">
+              <strong>{{post.title}}</strong> <small>@{{author}}</small>
+              <small>
+                <i>
+                  <time datetime="{{ post.date }}" itemprop="datePublished">
+                    {{ post.date | date: "%b %-d, %Y" }}
+                  </time>
+                </i>
+              </small>
+              <br>
+              {{ post.excerpt }}
+            </a>
+          </div>
+        </div>
+        <div class="media-right my-auto">
+          <a class="button is-small" href="{{ post.url | prepend: site.baseurl }}">
+            <span class="icon">
+              <i class="fab fa-readme"></i>
+            </span>
+            <span>
+              Read more
+            </span>
+          </a>
+        </div>
+      </article>
+    </div>
+    {% endfor %}
+  </div>
+</section>

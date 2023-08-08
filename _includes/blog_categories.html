@@ -1,0 +1,14 @@
+<div class="content">
+    <div class="media">
+        <div class="media-left">
+            <h2>Categories : </h2>
+        </div>
+        <div class="media-content">
+            <div class="tags">
+                {% for tag in site.categories %} {% capture tag_name %}{{ tag | first }}{% endcapture %}
+                <a class="tag is-info is-capitalized" href="{{ site.baseurl }}/blog/categories/{{ tag_name }}">{{ tag_name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+/* darko styling */
+
+/* variables */
+$body-typeface: 'Open Sans', sans-serif
+$nav-typeface: "Gill sans"
+$mono-typeface: Menlo, Monaco, monospace
+$text-width: 650px
+
+@import "dark"
+@import "switch"
+
+*
+     margin: 0
+     padding: 0
+
+body
+     background-color: var(--main-background-color) !important
+     color: var(--main-text-color) !important
+     font-family: 'Open Sans', sans-serif !important
+     font-feature-settings: "kern"on
+     font-size: 1.4rem
+     font-variant-numeric: oldstyle-nums
+     hanging-punctuation: first last
+     height: 100%
+     line-height: 1.35em
+     margin: 0
+     text-rendering: optimizeLegibility
+     overflow-x: hidden
+     overflow-y: scroll
+
+a
+     text-decoration: none
+
+.navbar
+     min-height: 3.5rem
+     display: flex
+     align-items: stretch
+     position: relative
+     z-index: 30
+     padding: 0 100px
+
+.navbar-brand
+     align-items: stretch
+     display: flex
+     flex-shrink: 0
+     min-height: 3.25rem
+     color: orange
+
+.navbar-menu
+     flex-grow: 1
+     flex-shrink: 0
+     align-items: stretch
+     display: flex
+
+.navbar-start
+     justify-content: flex-start
+     margin-right: auto
+     align-items: stretch
+     display: flex
+
+.navbar-item
+     align-items: center
+     display: flex
+     flex-grow: 0
+     flex-shrink: 0
+     line-height: 1.5
+     padding: .5rem .75rem
+     position: relative
+     a
+          color: white
+
+.nav-link
+     color: var(--nav-link-color) !important
+
+.nav-link:hover
+     color: var(--nav-link-color-hover) !important
+
+.container
+     max-width: 1344px
+     margin: 0 auto
+     position: relative
+     width: auto
+
+#recent-articles
+     margin-top: 100px
+#recent-articles-header
+     display: grid
+     width: 100%
+     grid-template-columns: 17fr 2fr
+
+.button
+     border: 1px solid
+     border-radius: 0.375em
+     background-color: #363636
+     border-color: #dbdbdb
+     border-width: 1px
+     color: #ffffff
+     cursor: pointer
+     justify-content: center
+     padding-bottom: calc(.5em - 1px)
+     padding-left: 1em
+     padding-right: 1em
+     padding-top: calc(.5em - 1px)
+     text-align: center
+     white-space: nowrap

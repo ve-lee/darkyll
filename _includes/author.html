@@ -1,0 +1,38 @@
+<div class="media">
+    <figure class="media-left my-auto">
+        <p class="image is-96x96">
+            {% if author.avatar_url %}
+            <img src="/assets/img/authors/{{author.avatar_url}}" alt="{{author.name}}" />
+            {% else %}
+            <img src="{{site.url}}/assets/img/authors/{{author.avatar}}" alt="{{author.name}}" />
+            {% endif %}
+        </p>
+    </figure>
+    <div class="media-content ml-6">
+        <div class="content">
+            <p>{{author.bio}}</p>
+            <p>
+                <a href="mailto:{{ author.email }}">
+                    <i class="fas fa-envelope"></i>
+                    {{ author.email }}
+                </a>
+            </p>
+
+            <p>
+                <a href="{{ author.site }}">
+                    <i class="fas fa-link" class="social-link"></i>
+                    {{ author.site }}
+                </a>
+            </p>
+            <nav class="level is-mobile">
+                <div class="level-left">
+                    {% for network in author.social %}
+                    <a class="level-item" href="{{ network.url }}">
+                        <span class="icon is-small"><i class="fab fa-{{ network.title }} fa-fw"></i></span>
+                    </a>
+                    {% endfor %}
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>

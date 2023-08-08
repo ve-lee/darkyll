@@ -1,0 +1,38 @@
+<!-- Single Gallery -->
+<div id="imageGallery">
+    <div id="gallery-sizer"></div>
+    <div class="columns is-multiline">
+        {% for picture in include.gallery.pictures %}
+        <div class="column is-2">
+            {% if picture.thumbnail %}
+            <a href="{{ site.url }}{{ site.baseurl }}/assets/img/gallery/{{ include.gallery.picture_path }}/{{ picture.original }}"
+                data-responsive="{% for size in picture.sizes %} {{ site.url}}{{ site.baseurl }}/assets/gallery/{{ include.gallery.picture_path }}/{{ size }}{% endfor %}"
+                class="image" {% if picture.title %}
+                data-sub-html="<div class='lg-toolbar caption'><h4>{{ picture.title | escape }}</h4>{% if picture.caption %}<p>{{ picture.caption | escape }}</p>{% endif %}</div>"
+                {% endif %}>
+                <img alt="{{ picture.title }}" class="img-thumbnail"
+                    src="{{ site.url }}{{ site.baseurl }}/assets/img/gallery/{{ include.gallery.picture_path }}/{{ picture.thumbnail }}" />
+            </a>
+            {% else %}
+            <a href="{{ site.url }}{{ site.baseurl }}/assets/img/gallery/{{ include.gallery.picture_path }}/{{ picture.original }}"
+                data-responsive="{% for size in picture.sizes %} {{ site.url}}{{ site.baseurl }}/assets/gallery/{{ include.gallery.picture_path }}/{{ size }}{% endfor %}"
+                class="image" {% if picture.title %}
+                data-sub-html="<div class='lg-toolbar caption'><h4>{{ picture.title | escape }}</h4>{% if picture.caption %}<p>{{ picture.caption | escape }}</p>{% endif %}</div>"
+                {% endif %}>
+                <img alt="{{ picture.title }}" class="img-thumbnail"
+                    src="{{ site.url }}{{ site.baseurl }}/assets/img/gallery/{{ include.gallery.picture_path }}/{{ picture.original }}" />
+            </a>
+            {% endif %}
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#imageGallery").lightGallery({
+            thumbnail: true,
+            selector: '.image'
+        });
+    });
+</script>

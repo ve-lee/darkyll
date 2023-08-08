@@ -1,0 +1,26 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <li class="navbar-item has-text-primary">
+                {{ site.title }}
+            </li>
+        </a>
+        <div class="navbar-menu">
+            <ul class="navbar-start">
+                {% for i in site.urls %}
+                <li class="navbar-item">
+                    <a href="{{ site.url}}{{site.baseurl}}{{ i.url }}">{{ i.text }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    {% if site.github_username %}
+                    <a class="icon" href="https://github.com/{{site.github_username}}"><i class="fab fa-github"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
