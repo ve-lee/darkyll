@@ -13,7 +13,7 @@ layout: page
             {% if page.author %}
             {% assign author = page.author %}
             {% if author %}
-            {% assign author_data = site.data.authors[author] %}
+            {% assign author_data = site.authors | where: "username", author | first %}
             by :
             <span itemprop="author" itemscope itemtype="http://schema.org/Person">
                 <span itemprop="name">

@@ -19,7 +19,7 @@
             {% if post.author %}
             {% assign author = post.author %}
             {% if author %}
-            {% assign author_data = site.data.authors[author] %}
+            {% assign author_data = site.authors | where: "username", author | first %}
             <img src="{{site.url}}{{site.baseurl}}/assets/img/authors/{{author_data.avatar}}" />
             {% endif %}
             {% endif %}
