@@ -28,7 +28,7 @@ layout: page
                             {% if post.author %}
                             {% assign author = post.author %}
                             {% if author %}
-                            {% assign author_data = site.data.authors[author] %}
+                            {% assign author_data = site.authors[author] %}
                             <img src="{{site.url}}{{site.baseurl}}/assets/img/authors/{{author_data.avatar}}" />
                             {% endif %}
                             {% endif %}
@@ -38,7 +38,7 @@ layout: page
                         {% if post.author %}
                         {% assign author = post.author %}
                         {% if author %}
-                        {% assign author_data = site.data.authors[author] %}
+                        {% assign author_data = site.authors[author] %}
                         <p class="title is-4">{{author_data.name}}</p>
                         <p class="subtitle is-6"><a
                                 href="{{site.url}}{{site.baseurl}}/blog/authors/{{author_data.username}}">@{{author_data.username}}</a>
