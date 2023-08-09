@@ -4,19 +4,14 @@ preview:
   original: 1.png
   sizes:
   - 1.png
-  thumbnail: 1-thumbnail.jpg
+  thumbnail: 1.png
 pictures:
 - filename: 1
   original: 1.png
   sizes:
   - 1.png
-  thumbnail: 1-thumbnail.jpg
+  thumbnail: 1.png
 - filename: 2
-  original: 1.png
+  original: 2.jpg
   sizes:
-  - 1.png
-# - filename: 3
-#   original: 3.jpg
-#   sizes:
-#   - 3.jpg
-#   thumbnail: 3-thumbnail.jpg
+  - 2.jpg
