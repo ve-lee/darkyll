@@ -86,7 +86,4 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
 
-includes:
-  - about.md
-
 destination: ./build
