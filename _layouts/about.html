@@ -44,7 +44,14 @@ layout: page
                             </a>
                         </h6>
                         {% endif %}
-
+                        {% if site.dockerhub_username %}
+                        <h6>
+                            <a href="https://hub.docker.com/u/{{ site.dockerhub_username }}">
+                                <i class="fab fa-docker" class="social-link"></i>
+                                {{site.author_website_url }}
+                            </a>
+                        </h6>
+                        {% endif %}
                     </div>
                 </div>
             </div>
